@@ -1,0 +1,76 @@
+<div class="form">
+    <h2 id="registration">Data Query</h2>
+    <form (ngSubmit)="onSubmit()" #myForm="ngForm">
+  
+        <!-- <div ngModelGroup="personDetails" #personalDetail="ngModelGroup"> -->
+          <label for="query">Hive Query</label>
+          <input type="text" id="query" placeholder="Hive Query.."
+          name="query" ngModel required #query="ngModel">
+          <!-- <div>
+            <small *ngIf="fname.invalid && fname.touched">First Name is a required field</small>
+            <span *ngIf="firstname">You entered {{firstname}}</span>
+          </div> -->
+      
+          <label for="sDate">Start Date</label>
+          <input type="text" id="sDate" placeholder="Your Start Date.."
+          name="startDate" ngModel required>
+
+          <label for="eDate">End Date</label>
+          <input type="text" id="eDate" placeholder="Your End Date.."
+          name="endDate" ngModel required>
+
+
+          <label for="oPath">Output Path</label>
+          <input type="text" id="eDate" placeholder="Your Output Path.."
+          name="outputPath" ngModel required>
+
+          <label for="dbTabNm">DB table Name</label>
+          <input type="text" id="dbTabNm" placeholder="Your DB table Name.."
+          name="dbTableName" ngModel required>
+
+          <!-- <div>
+            <span *ngIf="lastname">You entered {{lastname}}</span>
+          </div> -->
+  
+  
+          <!-- <div>
+            <small *ngIf="personalDetail.invalid && personalDetail.touched">Some of the required fields does not have valid value.</small>
+          </div>
+          <button (click)="setDefaultValues()">Set Default Values</button> -->
+        <!-- </div> -->
+        
+        <!-- <label for="country">Country</label>
+        <select id="country" name="country" [ngModel]="defaultCountry">
+          <option value="australia">Australia</option>
+          <option value="canada">Canada</option>
+          <option value="usa">USA</option>
+          <option value="india">India</option>
+          <option value="uk">UK</option>
+        </select> -->
+  
+        <label for="outputType">Output Type : </label>
+        <span *ngFor="let optype of outputTypeValues">
+          <input type="radio" id="{{optype.id}}" value="{{optype.value}}" name="outputType" [ngModel]="defaultoutputType">
+          <label>{{optype.value}}</label>
+        </span>
+        <br><br>
+
+
+        <label for="outputFormat">Output Format : </label>
+        <span *ngFor="let optype of outputFormatValues">
+          <input type="radio" id="{{optype.id}}" value="{{optype.value}}" name="outputFormat" [ngModel]="defaultoutputFormat">
+          <label>{{optype.value}}</label>
+        </span>
+        <br><br>
+
+        <!-- <label>Hobbies <i>(Optional)</i></label>
+        <div class="form-inline">
+            <label><input type="checkbox" value="sports" name="hobbies" ngModel> Sports</label>
+            <label><input type="checkbox" value="movies" name="hobbies" ngModel> Movies</label>
+            <label><input type="checkbox" value="music" name="hobbies" ngModel> Music</label>
+        </div> -->
+      
+        <input type="submit" value="Submit" id="btn"><!--[disabled]="!myForm.valid"-->
+      </form>
+  </div>
+  
